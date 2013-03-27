@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 public class Ventana extends JFrame
 {
     Tabla _t1;
+    //alfo
     public Ventana()
     {
         super("Memori");
