@@ -2,17 +2,20 @@
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 
 /**
  * @author Hamster
  */
-public class tabla extends JPanel implements ActionListener
+class Tabla extends JPanel
 {
     int _n;
     JButton[][] _botones; 
     ImageIcon[][] _imagen;
-    public tabla(int n)
+    ArrayList<ImageIcon> arrayImagenes = new ArrayList<ImageIcon>();
+    EscuchadorBotones presionada = new EscuchadorBotones(this);
+    public Tabla(int n)
     {
         this._n=n;
         _botones = new JButton[n][n];
@@ -21,16 +24,19 @@ public class tabla extends JPanel implements ActionListener
         
         GridLayout miembros = new GridLayout(n, n, 5, 5);
         setLayout(miembros);
-        
+        llenarArray();
+        llenarArray();
         imagenes();
         botones();
         
-        
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        
-        
-        
+    }
+    private void llenarArray()
+    {
+        for(int i = 0; i<(_n*_n)/2;i++)
+        {
+            arrayImagenes.add(new ImageIcon("imagenes/"+i+".gif"));
+        }
     }
     private void imagenes()
     {
@@ -39,7 +45,7 @@ public class tabla extends JPanel implements ActionListener
         {
             for(int j=0;j<_n;j++)
                 {                    
-                    _imagen [i][j]=new ImageIcon("imagenes/"+cont+".gif");
+                    _imagen [i][j]=arrayImagenes.get(cont);
                     cont++;                    
                 }
         }
@@ -53,27 +59,11 @@ public class tabla extends JPanel implements ActionListener
                 {                    
                     _botones [i][j]=new JButton();      //Crear boton                    
                     add(_botones[i][j]);                  //Colocar en el panel los botones para agregar el boton a la ventana                 
-                    _botones[i][j].addActionListener(this);    //Metodo para teclear Action Listener
+                    _botones[i][j].addActionListener(presionada);    //Metodo para teclear Action Listener
                 }
         }
         
     }
-    public void actionPerformed(ActionEvent evento)     //Metodo oyente del panel
-    {
-        Object e = evento.getSource();    
-        for(int i=0;i<_n;i++)
-        {
-            for(int j=0;j<_n;j++)
-            {                
-                if(e==_botones[i][j])
-                {   
-                    //JOptionPane.showMessageDialog(null,"fila: "+(i+1)   + "  columna:"+(j+1) , "posicion", 1, null);                   
-                       _botones[i][j].setIcon(_imagen[i][j]);
-                       _botones[i][j].repaint();
-                }
-            }
-            
-        }
-    }
+    
 
 }

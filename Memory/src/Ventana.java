@@ -6,17 +6,16 @@ import javax.swing.JFrame;
  */
 public class Ventana extends JFrame
 {
-    tabla _t1,_t2;
+    Tabla _t1;
     public Ventana()
     {
         super("Memori");
         //setLayout(null);
         //setBounds(0, 0, 1350, 700);
-        setSize(1350, 700);
+        setSize(700, 700);
         GridLayout miembros = new GridLayout(1,2, 100,100);
         setLayout(miembros);
-        _t1 = new tabla(3);
-        _t2 = new tabla(6);
+        _t1 = new Tabla(6);
         
         addItems();
         //posicionar();
@@ -26,12 +25,10 @@ public class Ventana extends JFrame
     private void addItems()
     {
         add(_t1);
-        add(_t2);
     }
     private void posicionar()
     {
         _t1.setBounds(50, 50, 550, 550);
-        _t2.setBounds(700, 50, 550, 550);
     }
     public static void main(String []Hams)
     {
