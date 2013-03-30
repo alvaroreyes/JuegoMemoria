@@ -1,6 +1,7 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
 /*
  * To change this template, choose Tools | Templates
@@ -35,4 +36,19 @@ public class EscuchadorBotones implements ActionListener
             
         }
     }
+    public boolean compararImagen(ImageIcon imagen1,ImageIcon imagen2){
+        boolean res;
+        String a,b;
+        res=false;
+      a=imagen1.toString();
+      b=imagen2.toString();
+       
+        if(a.equals(b)){
+        res=true;
+        }
+        else
+        res=false;
+        return res;
+    }
+    
 }
