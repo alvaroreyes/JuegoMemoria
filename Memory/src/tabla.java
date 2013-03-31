@@ -3,6 +3,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.*;
 
 /**
@@ -15,17 +16,19 @@ class Tabla extends JPanel
     ImageIcon[][] _imagen;
     ArrayList<ImageIcon> arrayImagenes = new ArrayList<ImageIcon>();
     EscuchadorBotones presionada = new EscuchadorBotones(this);
+     Random ram;
     public Tabla(int n)
     {
         this._n=n;
         _botones = new JButton[n][n];
         _imagen = new ImageIcon[n][n];
         //setSize(600, 600);
-        
+         ram = new Random();
         GridLayout miembros = new GridLayout(n, n, 5, 5);
         setLayout(miembros);
         llenarArray();
         llenarArray();
+        RandomisarImagen();
         imagenes();
         botones();
         
@@ -63,6 +66,19 @@ class Tabla extends JPanel
                 }
         }
         
+    }
+    
+    public void RandomisarImagen()
+    {
+        int ramd;
+        ArrayList<ImageIcon> arrayImagenes1 = new ArrayList<ImageIcon>();
+        while(arrayImagenes.size()!=0)
+         {
+            ramd = ram.nextInt(arrayImagenes.size());
+            arrayImagenes1.add(arrayImagenes.get(ramd));
+            arrayImagenes.remove(ramd);
+         } 
+        arrayImagenes = arrayImagenes1;
     }
     
 
