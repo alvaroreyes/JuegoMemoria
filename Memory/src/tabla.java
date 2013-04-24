@@ -24,8 +24,7 @@ class Tabla extends JPanel
         _botones = new JButton[n][n]; //ponemos el tamaño a la matriz de botones
         _imagen = new ImageIcon[n][n]; //ponemos el tamaño a la matriz de botones
         ram = new Random(); // creamos el numero randomico
-        FlowLayout miembros = new FlowLayout(); // le ponemos un layout para que los botones se acomoden en el panel en morma de matriz (cantidad de filas,cantidad de columnas,espacio entre botones en X,espacio entre botones en Y)
-        
+        GridLayout miembros = new GridLayout(n, n, 5, 5); // le ponemos un layout para que los botones se acomoden en el panel en morma de matriz (cantidad de filas,cantidad de columnas,espacio entre botones en X,espacio entre botones en Y)
         setLayout(miembros);// le agregamos el layout de arriba
         llenarArray(); // este metodo llena el array con imagenes, llenamos la mitad del array
         llenarArray(); // llamamos otra ves al metodo para llenar la 2da mitad con las mismas imganes que ya se pusieron antes
@@ -64,6 +63,7 @@ class Tabla extends JPanel
                     _botones [i][j]=new JButton();      //Crear boton                    
                     add(_botones[i][j]);                  //Colocar en el panel los botones para agregar el boton a la ventana                 
                     _botones[i][j].addActionListener(presionada);    //Metodo para teclear Action Listener
+                    
                 }
         }
         

@@ -14,7 +14,7 @@ public class Ventana extends JFrame
         setSize(700, 700); //con esto le damos el tamaño a la ventana
         GridLayout miembros = new GridLayout(1,2, 100,100); //este Layout es para posicionar las cosas dentro de la ventana por el momento solo la tabla
         setLayout(miembros);//colocamos el layout
-        _t1 = new Tabla(2); // creamos el objeto de tipo tabla le mandamos el 6 y cera una matris de 6X6
+        _t1 = new Tabla(4); // creamos el objeto de tipo tabla le mandamos el 6 y cera una matris de 6X6
         
         addItems(); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // esto es pa que el programa deje de correr internamente cuando se cierre la ventana
