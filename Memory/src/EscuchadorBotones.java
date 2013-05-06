@@ -20,9 +20,12 @@ public class EscuchadorBotones implements ActionListener
     int y1 = 0;
     int fin = 0;
     int cont = 0;
+    Datos datos;
+    int intentos=0;
     EscuchadorBotones(Tabla precionado) //como parametro de entrada le mandamos la interfaz de tabla asi podremos accionar sus botones desde esta clase
     {
         t= precionado;  
+        datos=new Datos();
     }
     public void actionPerformed(ActionEvent evento)     //Metodo oyente del panel
     {
@@ -42,7 +45,9 @@ public class EscuchadorBotones implements ActionListener
                                 {
                                     t._botones[i][j].setEnabled(false);
                                     fin =fin +2;
-                                    
+                                    intentos++;
+                                    datos.setDatos(intentos);
+                                    datos.intentos();
                                 }
                                 else
                                 {
@@ -50,6 +55,9 @@ public class EscuchadorBotones implements ActionListener
                                     t._botones[x1][y1].setEnabled(true);
                                     t._botones[x1][y1].setIcon(null);
                                     t._botones[x][y].setIcon(null);
+                                    intentos++;
+                                    datos.setDatos(intentos);
+                                    datos.intentos();
                                 }
                            cont = 0;
                        }
@@ -77,6 +85,9 @@ public class EscuchadorBotones implements ActionListener
             }
             
         }
+    }
+    public Datos getDatos(){
+    return datos;
     }
     public boolean compararImagen(ImageIcon imagen1,ImageIcon imagen2) // este metodo compara las imagenes, aun no lo estamos usando pero se usara para terminar el juego
     {

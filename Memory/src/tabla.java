@@ -34,6 +34,9 @@ class Tabla extends JPanel
         
         setVisible(true); 
     }
+    public EscuchadorBotones getEscuchador(){
+    return presionada;
+    }
     private void llenarArray()
     {
         for(int i = 0; i<(_n*_n)/2;i++)
