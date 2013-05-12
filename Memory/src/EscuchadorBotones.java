@@ -4,13 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- * @author Hamster
- */
+
 public class EscuchadorBotones implements ActionListener 
 {
     Tabla t; //creamos un objeto del tipo tabla
@@ -48,6 +42,7 @@ public class EscuchadorBotones implements ActionListener
                                     intentos++;
                                     datos.setDatos(intentos);
                                     datos.intentos();
+                                    verificarJuego();
                                 }
                                 else
                                 {
@@ -58,6 +53,7 @@ public class EscuchadorBotones implements ActionListener
                                     intentos++;
                                     datos.setDatos(intentos);
                                     datos.intentos();
+                                    verificarJuego();
                                 }
                            cont = 0;
                        }
@@ -88,6 +84,18 @@ public class EscuchadorBotones implements ActionListener
     }
     public Datos getDatos(){
     return datos;
+    }
+    public void verificarJuego(){
+    if (intentos >=2){
+        for(int i=0; i<=t._n; i++){
+              for(int j=0; j<=t._n; j++){
+                  
+                  JOptionPane.showMessageDialog(null, "perdiste");
+                  break;
+              
+              }
+        }
+    }
     }
     public boolean compararImagen(ImageIcon imagen1,ImageIcon imagen2) // este metodo compara las imagenes, aun no lo estamos usando pero se usara para terminar el juego
     {
