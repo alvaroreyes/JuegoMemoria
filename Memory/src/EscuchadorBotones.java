@@ -73,7 +73,12 @@ public class EscuchadorBotones implements ActionListener
                            cont = 2;
                            if(fin+2 == t._n*t._n)
                                     {
-                                        JOptionPane.showMessageDialog(null, "Felicidades ganaste");
+                                        int nivel = t._n/2+1;
+                                        JOptionPane.showMessageDialog(null, "Felicidades ganaste\n Subiste al nivel "+nivel);
+                                        //datos.setDatos(0);
+                                        //datos.intentos();
+                                        //datos=new Datos();
+                                        t.subirNivel(nivel);
                                     }
                        }
                        if(cont == 0)

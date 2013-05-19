@@ -22,13 +22,13 @@ try{
 }
 }
   
- public String MostrarPuntuacion(){
+ public String MostrarPuntuaciones(){
    String dato="";		 
 try{      
         db= new Cnx().getConexion();
     	dbmd = db.getMetaData(); //get MetaData to confirm connection	
     	sql = db.createStatement(); //create a statement that we can use later
-        ResultSet rs = sql.executeQuery("SELECT puntaje(max) " +"  FROM datos");
+        ResultSet rs = sql.executeQuery("SELECT puntaje " +"  FROM datos");
         while(rs.next()){
         dato=rs.getString("puntaje");
         System.out.println(dato);
@@ -44,7 +44,7 @@ return dato;
  public static void main(String[] args){
     Consultas t=new Consultas();
     t.insertar();
-    t.MostrarPuntuacion(); 
+    t.MostrarPuntuaciones(); 
  
  }
 }
