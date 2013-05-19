@@ -5,29 +5,57 @@ import javax.swing.JPanel;
 
 public class Datos extends JPanel{
     
-    int intentos;
-    JLabel label;
+    int jugadas,aciertos,fallas;
+    JLabel labelJudadas;
+    JLabel labelAciertos;
+    JLabel labelFallas;
     
     public Datos(){
     
-        intentos=0;
-        label=new JLabel();
+        jugadas=0;
+        aciertos=0;
+        fallas=0;
+        labelJudadas=new JLabel();
+        labelAciertos=new JLabel();
+        labelFallas=new JLabel();
         BorderLayout bl= new BorderLayout(5, 5);
         setLayout(bl);
-        add(label,BorderLayout.NORTH);
+        add(labelJudadas,BorderLayout.NORTH);
+        add(labelAciertos,BorderLayout.WEST);
+        add(labelFallas,BorderLayout.EAST);
         intentos();
         setVisible(true);
         }
   
  
     public void setDatos(int n){
-       intentos=n;
+       jugadas=n;
     } 
     public int getDatos(){
-       return intentos;
+       return jugadas;
+    }
+      public void setAciertos(int n){
+       aciertos=n;
+    }
+       public int getAciertos(){
+       return aciertos;
+    }
+      public void setFallas(int n){
+      fallas=n;
+      }
+       public int getFallas(){
+       return fallas;
     }
     public void intentos(){
-      label.setText("numero de intentos"+"     "+getDatos());
+      labelJudadas.setText("numero de jugadas"+"     "+getDatos());
+      labelFallas.setText("numero de fallas"+"     "+getFallas());
+      labelAciertos.setText("numero de aciertos"+"     "+getAciertos());
+    } 
+     public void aciertos(){
+      labelJudadas.setText("numero de intentos"+"     "+getAciertos());
+    } 
+      public void fallas(){
+      labelJudadas.setText("numero de intentos"+"     "+getFallas());
     } 
 
 }

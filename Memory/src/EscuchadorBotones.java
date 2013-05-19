@@ -15,7 +15,9 @@ public class EscuchadorBotones implements ActionListener
     int fin = 0;
     int cont = 0;
     Datos datos;
-    int intentos=0;
+    int jugadas=0;
+    int aciertos=0;
+    int fallas=0;
     EscuchadorBotones(Tabla precionado) //como parametro de entrada le mandamos la interfaz de tabla asi podremos accionar sus botones desde esta clase
     {
         t= precionado;  
@@ -39,10 +41,13 @@ public class EscuchadorBotones implements ActionListener
                                 {
                                     t._botones[i][j].setEnabled(false);
                                     fin =fin +2;
-                                    intentos++;
-                                    datos.setDatos(intentos);
+                                    jugadas++;
+                                    aciertos++;
+                                    datos.setDatos(jugadas);
+                                    datos.setAciertos(aciertos);
                                     datos.intentos();
-                                    verificarJuego();
+                                    
+                                 
                                 }
                                 else
                                 {
@@ -50,10 +55,13 @@ public class EscuchadorBotones implements ActionListener
                                     t._botones[x1][y1].setEnabled(true);
                                     t._botones[x1][y1].setIcon(null);
                                     t._botones[x][y].setIcon(null);
-                                    intentos++;
-                                    datos.setDatos(intentos);
+                                    jugadas++;
+                                    fallas++;
+                                    datos.setDatos(jugadas);
+                                    datos.setFallas(fallas);
                                     datos.intentos();
-                                    verificarJuego();
+                                    
+                                    
                                 }
                            cont = 0;
                        }
@@ -86,7 +94,7 @@ public class EscuchadorBotones implements ActionListener
     return datos;
     }
     public void verificarJuego(){
-    if (intentos >=2){
+    if (jugadas >=2){
         for(int i=0; i<=t._n; i++){
               for(int j=0; j<=t._n; j++){
                   
