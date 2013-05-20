@@ -51,11 +51,6 @@ public class Datos extends JPanel{
       labelFallas.setText("numero de fallas"+"     "+getFallas());
       labelAciertos.setText("numero de aciertos"+"     "+getAciertos());
     } 
-     public void aciertos(){
-      labelJudadas.setText("numero de intentos"+"     "+getAciertos());
-    } 
-      public void fallas(){
-      labelJudadas.setText("numero de intentos"+"     "+getFallas());
-    } 
+ 
 
 }

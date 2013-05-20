@@ -42,6 +42,8 @@ public class Ventana extends JFrame
     {
         _t1.removeAll();
         _t1 = new Tabla(n , this);
+        e=_t1.getEscuchador();
+        d=e.getDatos();
         addItems();
         this.repaint();
         _t1.repaint();
