@@ -18,9 +18,12 @@ class Tabla extends JPanel
     ArrayList<ImageIcon> arrayImagenes = new ArrayList<ImageIcon>(); //array de imagenes
     EscuchadorBotones presionada = new EscuchadorBotones(this);// creo un objeto Escuchador botones y le mando la misma tabla para que tenga el control de los botones de la tabla
     Random ram; // ocuparemos esto para generar numeros randomicos
-    public Tabla(int n)
+    int nivel = 1;
+    Ventana v;
+    public Tabla(int n , Ventana v)
     {
-        this._n=n; // la tabla sera nXn
+        n = getNivel(n);
+        this.v = v;
         _botones = new JButton[n][n]; //ponemos el tamaño a la matriz de botones
         _imagen = new ImageIcon[n][n]; //ponemos el tamaño a la matriz de botones
         ram = new Random(); // creamos el numero randomico
@@ -34,8 +37,18 @@ class Tabla extends JPanel
         
         setVisible(true); 
     }
+    
+    public int getNivel(int n)
+    {
+        _n = n*2;
+        return _n;
+    }
     public EscuchadorBotones getEscuchador(){
     return presionada;
+    }
+    public void subirNivel(int num)
+    {
+        v.cambiarNivel(num);
     }
     private void llenarArray()
     {
@@ -65,6 +78,7 @@ class Tabla extends JPanel
                 {                    
                     _botones [i][j]=new JButton();      //Crear boton                    
                     add(_botones[i][j]);                  //Colocar en el panel los botones para agregar el boton a la ventana                 
+                    _botones[i][j].repaint();
                     _botones[i][j].addActionListener(presionada);    //Metodo para teclear Action Listener
                     
                 }
