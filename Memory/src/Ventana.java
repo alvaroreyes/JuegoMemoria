@@ -21,6 +21,7 @@ public class Ventana extends JFrame
     
     JMenu niveles = new JMenu("Nivel");  //este es el boton menu que contiene los botnes de arriba XD
     JMenuBar menuBar = new JMenuBar();                      //esta es una barra que contiene al boton menu
+    vistaLateral vistal;
     public Ventana()
     {
         super("Memori"); // aqui se pone el titulo que tendra la ventana en la parte superior izquierda
@@ -32,6 +33,7 @@ public class Ventana extends JFrame
         
         e=_t1.getEscuchador();
         d=e.getDatos();
+        vistal=new vistaLateral();
         oyentesMenu();   
         addMenu();
         addItems(); 
@@ -55,6 +57,7 @@ public class Ventana extends JFrame
         
         add(_t1,BorderLayout.CENTER); // aderimos la tabla a la ventana
         add(d,BorderLayout.SOUTH);
+        add(vistal,BorderLayout.NORTH);
     }
     private void addMenu()
     {

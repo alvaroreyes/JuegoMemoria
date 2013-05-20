@@ -10,6 +10,7 @@ public class Datos extends JPanel{
     JLabel labelAciertos;
     JLabel labelFallas;
     
+    
     public Datos(){
     
         jugadas=0;
@@ -18,6 +19,7 @@ public class Datos extends JPanel{
         labelJudadas=new JLabel();
         labelAciertos=new JLabel();
         labelFallas=new JLabel();
+       
         BorderLayout bl= new BorderLayout(5, 5);
         setLayout(bl);
         add(labelJudadas,BorderLayout.NORTH);
