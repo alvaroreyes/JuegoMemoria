@@ -12,6 +12,7 @@ public class Ventana extends JFrame
     EscuchadorBotones e;
     EscuchadorMenu esM = new EscuchadorMenu(this);
     Datos d;
+    JLabel tiempo= new JLabel("   Tiempo transcurrido: "); 
     JMenuItem j = new JMenuItem("Nivel 1");               //Botones del menu
     JMenuItem j1 = new JMenuItem("Nivel 2");
     JMenuItem j2 = new JMenuItem("Nivel 3");
@@ -42,6 +43,10 @@ public class Ventana extends JFrame
     }
     public void cambiarNivel(int n)
     {
+        menuBar.remove(vistal);
+        vistal = new vistaLateral();
+        menuBar.add(vistal);
+        menuBar.repaint();
         _t1.removeAll();
         _t1 = new Tabla(n , this);
         e=_t1.getEscuchador();
@@ -57,7 +62,8 @@ public class Ventana extends JFrame
         
         add(_t1,BorderLayout.CENTER); // aderimos la tabla a la ventana
         add(d,BorderLayout.SOUTH);
-        add(vistal,BorderLayout.NORTH);
+        menuBar.add(tiempo);
+        menuBar.add(vistal);
     }
     private void addMenu()
     {
