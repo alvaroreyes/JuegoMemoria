@@ -20,9 +20,14 @@ public class Ventana extends JFrame
     JMenuItem j4 = new JMenuItem("Nivel 5");
     JMenuItem j5 = new JMenuItem("Nivel 6");
     
-    JMenu niveles = new JMenu("Nivel");  //este es el boton menu que contiene los botnes de arriba XD
+    JMenuItem mR = new JMenuItem("Reiniciar Partida");
+    JMenuItem mA = new JMenuItem("Ayuda");
+    JMenuItem mS = new JMenuItem("Salir");
+    JMenu niveles = new JMenu("Nivel");
+    JMenu menu = new JMenu("Menu");//este es el boton menu que contiene los botnes de arriba XD
     JMenuBar menuBar = new JMenuBar();                      //esta es una barra que contiene al boton menu
     vistaLateral vistal;
+    int n= 0 ;
     public Ventana()
     {
         super("Memori"); // aqui se pone el titulo que tendra la ventana en la parte superior izquierda
@@ -44,7 +49,11 @@ public class Ventana extends JFrame
     public void cambiarNivel(int n)
     {
         menuBar.remove(vistal);
+        menuBar.remove(niveles);
+        menuBar.remove(menu);
         vistal = new vistaLateral();
+        menuBar.add(menu);
+        menuBar.add(niveles);
         menuBar.add(vistal);
         menuBar.repaint();
         _t1.removeAll();
@@ -67,7 +76,10 @@ public class Ventana extends JFrame
     }
     private void addMenu()
     {
+        menuBar.add(menu);
         menuBar.add(niveles);
+        
+        
         add(menuBar,BorderLayout.NORTH);
         niveles.add(j);
         j.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1,KeyEvent.CTRL_MASK));     //Acceso directo al boton
@@ -88,7 +100,21 @@ public class Ventana extends JFrame
         j5.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_6,KeyEvent.CTRL_MASK));
         niveles.addSeparator();
         
+        menu.add(mR);
+        mR.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_R,KeyEvent.CTRL_MASK));
+        menu.addSeparator();
+        menu.add(mA);
+        mA.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,KeyEvent.CTRL_MASK));
+        menu.addSeparator();
+        menu.add(mS);
+        mS.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,KeyEvent.CTRL_MASK));
+        niveles.addSeparator();
+        
+        
     }
+     public void salir(){
+     System.exit(0);
+     }
     void oyentesMenu()                                                                  //Activa los escuchadores del menu
     {
         j.addActionListener(esM);
@@ -97,6 +123,10 @@ public class Ventana extends JFrame
         j3.addActionListener(esM);
         j4.addActionListener(esM);
         j5.addActionListener(esM);
+        
+        mA.addActionListener(esM);
+        mR.addActionListener(esM);
+        mS.addActionListener(esM);
     }
     public static void main(String []Hams)
     {

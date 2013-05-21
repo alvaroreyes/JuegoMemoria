@@ -41,5 +41,13 @@ public class EscuchadorMenu implements ActionListener
         {
             v.cambiarNivel(6);
         }
+        if(objeto == v.mS)
+        {
+            v.salir();
+        }
+        if(objeto == v.mR)
+        {
+            v.cambiarNivel(v.n);
+        }
     }
 }

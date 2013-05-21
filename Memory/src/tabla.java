@@ -49,6 +49,7 @@ class Tabla extends JPanel
     public void subirNivel(int num)
     {
         v.cambiarNivel(num);
+        v.n=num;
     }
     private void llenarArray()
     {
